@@ -1,0 +1,37 @@
+
+<style>
+  a {
+    text-decoration: none;
+  }
+  #list {
+    background-color: blanchedalmond;
+  }
+  #list form {
+    text-align: left;
+  }
+  input {
+    width: 247px;
+    text-align: left;
+  }
+  input[type='submit'] {
+    width: 70px;
+    /* margin-left: 230px; */
+  }
+  textarea { text-align: left;}
+  .cancel {margin-left: 180px;}
+  .cancel, .regist { text-align: center;}
+</style>
+<h1>게시물 등록페이지</h1>
+<a class="btn btn-danger" href="/">홈으로</a> <br><br><br><br>
+<div id="list" class="form-group">
+  <form method="POST" class="mt-4 ms-3" action="/articles/regist">
+    제&nbsp&nbsp&nbsp목: <input class="form-control"type="text" name="title" required><br>
+    내&nbsp&nbsp&nbsp용: <textarea class="mt-1 form-control" name="contents" id="" cols="30" rows="10" required></textarea><br>
+    작성자: <input class="form-control" type="text" name="name" required><br>
+    작성일: 2022.07.022 <br>
+    <a class="btn btn-danger" href="/articles/list">취소</a>
+    <input class="mt-1 regist btn btn-primary" type="submit" value="등록">
+  </form>
+</div>
+
+

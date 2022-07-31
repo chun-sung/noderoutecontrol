@@ -1,0 +1,25 @@
+<style>
+  ol li {
+    text-align: left;
+  }
+</style>
+<body>
+  <h1>게시물 목록 페이지</h1>
+   <a class="btn btn-danger link-primary" href="/">홈으로</a> 
+   <a class="btn btn-primary ms-2" href="/articles/regist">게시물 등록</a>
+  
+   <ol>
+      <%for(let i=0; i < list.length;i++) {%>
+      <li><a class="link-success" href="/articles/edit/<%= i%>">제목:<%= list[i].title%></a> | 내용:<%= list[i].contents%> | 작성자:<%= list[i].name%></li>
+      <% } %>
+   </ol>
+
+   <ol>
+    <%for(let i=0; i < list.length;i++) {%>
+    <li><a class="link-danger" href="/articles/edit?id=<%= i%>">제목:<%= list[i].title%></a> | 내용:<%= list[i].contents%> | 작성자:<%= list[i].name%></li>
+    <% } %>
+ </ol>
+<script>
+</script>
+</body>
+

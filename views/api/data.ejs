@@ -1,0 +1,22 @@
+<h1>API DATA 페이지</h1>
+
+<!-- <p>데이터: <%= JSON.stringify(users) %> </p> -->
+<p>데이터: <%= users%> </p>
+
+<button class="btn btn-danger">super 데이터 추가(post api/user 로 데이터 전달)</button>
+
+<script>
+  let btn = document.querySelector('button')
+  btn.addEventListener('click', () => {
+    
+    axios.post('/api/user', {
+      id: 'super: 009',
+      name: 'super',
+      email: 'super@super.man.co.kr'
+    })
+      .then((res) => res.data)      
+      .then(console.log)
+      location.href = '/api/data'      
+  })
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>  

@@ -1,0 +1,63 @@
+<h1>로그인 페이지</h1>
+  <input onkeypress="javascript:if(event.keyCode==13) { fn() }"  type="text" placeholder="ID" class="id text-start first" required><br>
+  <input onkeypress="javascript:if(event.keyCode==13) { fn() }" type="text" placeholder="PASSWORD" class="psword text-start" required><br><br>
+  <button class="btn btn-primary">로그인</button> <a class="btn btn-danger" href="/">취소</a>
+
+
+<script>
+
+  function ajax(id, psword) {
+  let data = { id, psword };
+  axios.post('/login', { data })       
+  .then((res)=> {      
+    if(res.data.success) {
+      console.log(res.data.success)  
+      alert('로그인에 성공하셨습니다.')
+      location.href = "/articles/list"
+    } else {
+      alert(res.data.msg);    
+      location.href = "/login"     // "로그인에 실패하셨습니다."
+    }
+  }) 
+}
+
+// input 에서 엔터 클릭 로직
+function fn() {
+  let id = document.querySelector('.id').value;
+  let psword = document.querySelector('.psword').value;
+
+  if(id == '') {
+    alert('아이디를 입력해 주세요')
+    document.querySelector('.id').focus();
+    return 
+  } else if(psword == '') {
+    alert('비밀번호를 입력해 주세요') 
+    document.querySelector('.psword').focus();
+    return      
+  }     
+
+  ajax(id, psword); 
+}
+
+// 로그인 버튼 클릭 로직 
+  let btn = document.querySelector('button')  
+  btn.addEventListener('click', function() {   
+
+    let id = document.querySelector('.id').value;
+    let psword = document.querySelector('.psword').value;
+
+    if(id == '') {
+      alert('아이디를 입력해 주세요')
+      document.querySelector('.id').focus()
+      return 
+    } else if(psword == '') {
+      alert('비밀번호를 입력해 주세요') 
+      document.querySelector('.psword').focus()
+      return      
+    }    
+
+    ajax(id, psword);
+  })
+
+  </script> 
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  
